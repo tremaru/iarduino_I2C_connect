@@ -16,7 +16,7 @@
 | <p>Piranha Uno R3</p> <img src="https://wiki.iarduino.ru/img/resources/973/973.svg" width="235px"></img>| https://iarduino.ru/shop/boards/piranha-uno-r3.html |
 | <p>Piranha Ultra R3</p> <img src="https://wiki.iarduino.ru/img/resources/1181/1181.svg" width="235px"></img>| https://iarduino.ru/shop/boards/piranha-ultra.html |
 | <p>Piranha Pro Mini (без пинов)</p> <img src="https://wiki.iarduino.ru/img/resources/1099/1099.svg" width="150px"></img>| https://iarduino.ru/shop/boards/piranha-pro-mini-bez-nog.html |
-| <p>Piranha Pro Mini (с пинами)</p> <img src="https://wiki.iarduino.ru/img/resources/1098/1098.svg" width="150px"></img>| https://iarduino.ru/shop/boards/piranha-pro-mini-s-nogami.html |
+| <p>Piranha Pro Mini (с пинами)</p> <img src="https://wiki.iarduino.ru/img/resources/1098/1098.svg" width="170px"></img>| https://iarduino.ru/shop/boards/piranha-pro-mini-s-nogami.html |
 
 
 ## Назначение функций:

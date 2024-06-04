@@ -8,7 +8,9 @@
 #	МЕТОДЫ И ФУНКЦИИ:						   (KEYWORD2)
 	begin	KEYWORD2
 	readByte	KEYWORD2
+	readBytes	KEYWORD2
 	writeByte	KEYWORD2
+	writeBytes	KEYWORD2
 	writeMask	KEYWORD2
 #	####################################################
 #	КОНСТАНТЫ:								   (LITERAL1)

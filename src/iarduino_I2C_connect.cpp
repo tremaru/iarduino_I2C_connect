@@ -75,7 +75,7 @@ byte	iarduino_I2C_connect::readByte(byte i, byte j){						//	Параметры:
 }																			//
 																			//
 //		ФУНКЦИЯ ЗАПИСИ МАСТЕРОМ ОДНОГО БАЙТА ПО ШИНЕ I2C:					//
-byte	iarduino_I2C_connect::writeByte(byte i, byte j, byte k){			//	Параметры: i - адрес устройства, j - адрес регистра, k - байт для записи
+bool	iarduino_I2C_connect::writeByte(byte i, byte j, byte k){			//	Параметры: i - адрес устройства, j - адрес регистра, k - байт для записи
 			if(!flgInitM && !flgBegS){ _initMaster(); }						//	Указываем мастеру шину I2C по умолчпнию (для совместимости с библиотекой версии 1.1.1 и ниже).
 			return iarduino_I2C_connect_NS::ptr_I2C->writeByte(i,j,k);		//
 }																			//

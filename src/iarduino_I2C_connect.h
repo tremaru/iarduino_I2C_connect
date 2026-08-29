@@ -1,5 +1,5 @@
 //	Библиотека для удобства соединения нескольких Arduino по аппаратной шине I2C
-//  Версия: 1.1.4
+//  Версия: 1.1.5
 //  Последнюю версию библиотеки Вы можете скачать по ссылке: http://iarduino.ru/file/254.html
 //  Подробное описание функции бибилиотеки доступно по ссылке: http://lesson.iarduino.ru/page/urok-26-3-soedinyaem-dve-arduino-po-shine-i2c/
 //  Библиотека является собственностью интернет магазина iarduino.ru и может свободно использоваться и распространяться!
@@ -20,7 +20,7 @@
 																																											//	
 #include	"iarduino_I2C_connect_I2C.h"																																	//	Подключаем библиотеку выбора реализации шины I2C.
 																																											//
-#if defined(TwoWire_h) || defined(__ARDUINO_WIRE_IMPLEMENTATION__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2560__) || defined(ESP8266) || defined(ESP32) || defined(ARDUINO_ARCH_RP2040) || defined(RENESAS_CORTEX_M4) // Если подключена библиотека Wire или платы её поддерживают...
+#if defined(TwoWire_h) || defined(__ARDUINO_WIRE_IMPLEMENTATION__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2560__) || defined(ESP8266) || defined(ESP32) || defined(ARDUINO_ARCH_RP2040) || defined(RENESAS_CORTEX_M4) // Если подключена библиотека Wire.h или платы её поддерживают...
 #include	<Wire.h>																																						//	Разрешаем использовать библиотеку Wire в данной библиотеке.
 #endif																																										//
 #if defined( iarduino_I2C_Software_h )																																		//	Если библиотека iarduino_I2C_Software подключена в скетче...
@@ -34,7 +34,7 @@ class iarduino_I2C_connect{																																					//
 		iarduino_I2C_connect(uint8_t adr){ valAddr=adr; flgAddr=true;  selI2C = new iarduino_I2C_Select; _savePtrI2C((iarduino_I2C_Select*)selI2C); }						//	Сохраняем адрес ведомого, переопределяем указатель selI2C на объект производного класса iarduino_I2C_Select, дублируем указатель selI2C в пространство имён iarduino_I2C_connect_NS.
 																																											//
 	/**	Пользовательские функции **/																																		//
-		#if defined(TwoWire_h) || defined(__ARDUINO_WIRE_IMPLEMENTATION__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2560__) || defined(ESP8266) || defined(ESP32) || defined(ARDUINO_ARCH_RP2040) || defined(RENESAS_CORTEX_M4) // Если подключена библиотека Wire или платы её поддерживают...
+		#if defined(TwoWire_h) || defined(__ARDUINO_WIRE_IMPLEMENTATION__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2560__) || defined(ESP8266) || defined(ESP32) || defined(ARDUINO_ARCH_RP2040) || defined(RENESAS_CORTEX_M4) // Если подключена библиотека Wire.h или платы её поддерживают...
 											void	begin		(TwoWire* i									){	selI2C->init(i);     flgInitM=true;						}	//	Функция выбора аппаратной шины I2C для мастера.
 			template<size_t n>				void	begin		(TwoWire* i    , byte(&j)[n]				){	selI2C->init(i);     _beginSlave(j,n);					}	//	Функция выбора аппаратной шины I2C и инициализации работы в качестве ведомого, с указанием массива данных byte(&j)[n].
 			template<size_t n>				void	begin		(                byte(&j)[n]				){	selI2C->init(&Wire); _beginSlave(j,n);					}	//	Функция использования основной I2C и инициализации работы в качестве ведомого, с указанием массива данных byte(&j)[n].
@@ -59,7 +59,7 @@ class iarduino_I2C_connect{																																					//
 											bool	flgBegS =false;																											//	Определяем флаг инициализации работы в качестве ведомого.
 	/**	Внутренние функции **/																																				//
 		private:																																							//
-		#if defined(TwoWire_h) || defined(__ARDUINO_WIRE_IMPLEMENTATION__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2560__) || defined(ESP8266) || defined(ESP32) || defined(ARDUINO_ARCH_RP2040) || defined(RENESAS_CORTEX_M4) // Если подключена библиотека Wire или платы её поддерживают...
+		#if defined(TwoWire_h) || defined(__ARDUINO_WIRE_IMPLEMENTATION__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2560__) || defined(ESP8266) || defined(ESP32) || defined(ARDUINO_ARCH_RP2040) || defined(RENESAS_CORTEX_M4) // Если подключена библиотека Wire.h или платы её поддерживают...
 											void	_initMaster	( void										){	selI2C->init(&Wire); flgInitM=true;						}	//  Функция указания шины I2C для мастера по умолчанию.
 		#endif																																								//
 											void	_beginSlave	( byte* , uint8_t							);																//  Функция инициализации работы в качестве ведомого.
